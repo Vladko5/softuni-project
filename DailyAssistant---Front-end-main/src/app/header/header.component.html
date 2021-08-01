@@ -1,0 +1,13 @@
+<div>
+  <!-- <p>header works!</p> -->
+  <nav>
+    <p routerLink="/home"> My Daily Assistent  </p>
+
+    <a routerLink="/home" *ngIf="isLogged">Home</a>
+    <a routerLink="/login" *ngIf="!isLogged">Login</a>
+    <a routerLink="/register" *ngIf="!isLogged">Register</a>
+    <a (click)="logoutHandler()" *ngIf="isLogged">Logout</a>
+
+  </nav>
+
+</div>

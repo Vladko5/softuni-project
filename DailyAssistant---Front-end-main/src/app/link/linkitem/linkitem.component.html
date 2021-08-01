@@ -1,0 +1,20 @@
+<div id="link-info-div" *ngIf="!isDeleted">
+
+  <p class="link-info">Title : {{link.title}}</p>
+
+  <div class="link-icons">
+    <a class="icon-visit visit"  (click)="updateViews()">
+      <span >
+        Visit
+      </span>
+    </a>
+    <p class="icon-trash" (click)="deleteEl(link._id)">
+      <img id="trash-img" src="../../assets/trash-can.png" alt="Delete">
+    </p>
+
+    <p class="icon-view">
+      <img src="../../assets/focus.png" alt="Visited : ">
+    </p>
+    <p id="link-view">{{link.views}}</p>
+  </div>
+</div>

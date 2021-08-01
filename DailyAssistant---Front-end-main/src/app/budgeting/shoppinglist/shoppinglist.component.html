@@ -1,0 +1,4 @@
+<div class="shopping-info-div" *ngIf="!isClicked" >
+    <input type="checkbox" (click)="changeValue()" >
+    <p class="shopping-info">Buy :  {{item.productName}}</p>
+</div>

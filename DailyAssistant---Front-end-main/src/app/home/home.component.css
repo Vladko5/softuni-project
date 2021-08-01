@@ -1,0 +1,39 @@
+.top {
+  top: 10%;
+}
+
+h1{
+  color: rgb(2, 166, 216);
+  font-weight: 700;
+  display: inline;
+}
+p{
+  display: inline;
+  color: rgb(2, 166, 216);
+  font-size: xx-large;
+}
+div{
+  margin: 5vh;
+  padding-top: 7vh;
+}
+img{
+  width:75%;
+}
+
+.info{
+  display: inline;
+  float:left;
+  background-color: white;
+  border-radius: 1%;
+  padding: 5%;
+  margin-left: 20%;
+  border-style: solid;
+  border-color: rgb(2, 166, 216);
+}
+.img{
+  display:inline;
+}
+
+.more-info{
+  font-size: x-large;
+}

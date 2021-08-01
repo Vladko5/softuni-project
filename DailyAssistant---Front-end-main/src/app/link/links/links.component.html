@@ -1,0 +1,27 @@
+<div class="top2">
+  <div class="container">
+
+    <p (click)="toggleInfo()">Links :</p>
+
+  </div>
+
+  <div class="input-container" *ngIf="isClicked">
+
+    <div>
+      <form #LinkForm="ngForm" (ngSubmit)="this.linkService.postLinkItem(LinkForm)">
+        <label>Title : </label>
+        <input #inputTitle="ngModel" type="text" name="title" ngModel required minlength="3">
+        <label>Link : </label>
+        <input #inputLink="ngModel" type="text" name="link" ngModel required minlength="4">
+        <label>Description : </label>
+        <textarea #inputDescription="ngModel" type="text" name="description" ngModel required minlength="1"></textarea>
+        <button id="link-submit-input"
+          [disabled]="inputTitle.invalid || inputLink.invalid || inputDescription.invalid">Submmit</button>
+      </form>
+    </div>
+
+  </div>
+  <div *ngIf="isClicked">
+    <app-linkitem *ngFor="let link of linkService.linksArray" [link]="link"></app-linkitem>
+  </div>
+</div>

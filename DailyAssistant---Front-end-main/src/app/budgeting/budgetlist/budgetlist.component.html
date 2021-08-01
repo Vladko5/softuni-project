@@ -1,0 +1,21 @@
+<div id="budget-info-div" *ngIf="!isDeleted">
+    <p class="budget-info">
+      <span>
+        Price :
+      </span> {{record.price}}</p>
+    <p class="budget-info">
+      <span>
+        From where :
+      </span>{{record.from}}</p>
+    <p class="budget-info">
+      <span>
+        Product name :
+      </span>
+      {{record.about}}</p>
+    <p class="budget-info">
+      <span>
+        Date :
+      </span>{{record.date.toDateString()}}</p>
+    <!-- <button class="budget-info-button">Edit</button> -->
+    <p class="budget-info" (click)="deleteEl(record._id)"><img src="../../assets/trash-can.png" alt="Delete"></p>
+</div>

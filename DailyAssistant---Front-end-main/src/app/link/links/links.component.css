@@ -1,0 +1,63 @@
+.top2 {
+  margin-top: 5%;
+}
+
+.container{
+  background-color:rgb(2, 166, 216);
+  margin:0;
+  margin-top:3vh;
+  font-weight: 700;
+}
+div{
+border-top: 1vh solid rgb(0, 109, 143);
+}
+form{
+  width: 90%;
+  padding: 2vh;
+  display: inline-grid;
+}
+
+label{
+  margin: 0;
+  color: white;
+  font-weight: 700;
+}
+
+p{
+  margin:0;
+  padding: 1vh;
+  padding-left: 10vh;
+  color:white;
+  font-weight: 700;
+}
+
+button{
+  margin: auto;
+  margin-top:1vh;
+  font-weight: 700;
+  font-size: larger;
+  padding: 1vh;
+  border-radius: 5%;
+}
+.input-container{
+  border-top: solid 1vh rgb(0, 109, 143);
+  width: 50%;
+  background-color:rgb(2, 166, 216);
+  height: 58vh;
+}
+
+form input{
+  margin:1vh;
+  margin-left:3vh;
+  width: 45%;
+  background-color: rgba(245, 245, 245, 0.815);
+  border:none;
+  height: 4vh;
+}
+form textarea{
+margin: 1vh;
+margin-left: 3vh;
+height: 20vh;
+width: 80%;
+background-color: rgba(245, 245, 245, 0.815);
+}

@@ -1,0 +1,430 @@
+<div id="calendar-div">
+
+  <div class="form-container" *ngIf="addIsClicked">
+    <form #taskForm="ngForm" (ngSubmit)="submmitTask(taskForm)">
+      <label> Title: </label>
+      <input #inputTitle="ngModel" id="title" name="title" ngModel required minlength="3" />
+      <label> Date: </label>
+      <input #inputDate="ngModel" id="date" type="date" name="date" ngModel required />
+      <label> Start hour: </label>
+      <input #inputFrom="ngModel" id="from" type="time" name="from" ngModel required />
+      <label> End hour: </label>
+      <input #inputTo="ngModel" id="to" type="time" name="to" ngModel required />
+      <button *ngIf="forEdition" id="editBtn">Edit</button>
+      <button *ngIf="forEdition" id="delBtn">Delete</button>
+      <button [disabled]=" inputTitle.invalid
+        || inputDate.invalid
+        || inputFrom.invalid
+        || inputTo.invalid " *ngIf="!forEdition">Submmit</button>
+      <button (click)="addClicked()">Cancel</button>
+    </form>
+  </div>
+  <div id="calendar-header">
+    <div id="calendar-header-date">10.11.2020</div>
+    <a id="calendar-header-prev-week" type="button" (click)="this.calendarService.prevWeek()">
+      <img src="../../assets/left-calendar-header-arrow.png">
+    </a>
+    <a id="calendar-header-next-week" type="button" (click)="this.calendarService.nextWeek()">
+      <img src="../../assets/right-calendar-header-arrow.png">
+    </a>
+    <a id="calendar-header-add-button" (click)="addClicked()">Add Task</a>
+  </div>
+  <div id="calendar-table-div">
+
+    <table id="calendar-table">
+
+      <thead>
+
+        <tr class="calendar-table-row">
+          <th id="calendar-table-header-month"></th>
+          <th id="calendar-table-header-monday"></th>
+          <th id="calendar-table-header-tuesday"></th>
+          <th id="calendar-table-header-wednesday"></th>
+          <th id="calendar-table-header-thursday"></th>
+          <th id="calendar-table-header-friday"></th>
+          <th id="calendar-table-header-saturday"></th>
+          <th id="calendar-table-header-sunday"></th>
+        </tr>
+
+      </thead>
+
+      <tbody id="calendar-table-body" (dblclick)="clickedTask($event)">
+
+        <tr>
+          <th>05:00</th>
+          <td id="Mon-5"></td>
+          <td id="Tue-5"></td>
+          <td id="Wed-5"></td>
+          <td id="Thu-5"></td>
+          <td id="Fri-5"></td>
+          <td id="Sat-5"></td>
+          <td id="Sun-5"></td>
+        </tr>
+        <tr>
+          <th>05:30</th>
+          <td id="Mon-5-30"></td>
+          <td id="Tue-5-30"></td>
+          <td id="Wed-5-30"></td>
+          <td id="Thu-5-30"></td>
+          <td id="Fri-5-30"></td>
+          <td id="Sat-5-30"></td>
+          <td id="Sun-5-30"></td>
+        </tr>
+        <tr>
+          <th>06:00</th>
+          <td id="Mon-6"></td>
+          <td id="Tue-6"></td>
+          <td id="Wed-6"></td>
+          <td id="Thu-6"></td>
+          <td id="Fri-6"></td>
+          <td id="Sat-6"></td>
+          <td id="Sun-6"></td>
+        </tr>
+        <tr>
+          <th>06:30</th>
+          <td id="Mon-6-30"></td>
+          <td id="Tue-6-30"></td>
+          <td id="Wed-6-30"></td>
+          <td id="Thu-6-30"></td>
+          <td id="Fri-6-30"></td>
+          <td id="Sat-6-30"></td>
+          <td id="Sun-6-30"></td>
+        </tr>
+        <tr>
+          <th>07:00</th>
+          <td id="Mon-7"></td>
+          <td id="Tue-7"></td>
+          <td id="Wed-7"></td>
+          <td id="Thu-7"></td>
+          <td id="Fri-7"></td>
+          <td id="Sat-7"></td>
+          <td id="Sun-7"></td>
+        </tr>
+        <tr>
+          <th>07:30</th>
+          <td id="Mon-7-30"></td>
+          <td id="Tue-7-30"></td>
+          <td id="Wed-7-30"></td>
+          <td id="Thu-7-30"></td>
+          <td id="Fri-7-30"></td>
+          <td id="Sat-7-30"></td>
+          <td id="Sun-7-30"></td>
+        </tr>
+        <tr>
+          <th>08:00</th>
+          <td id="Mon-8"></td>
+          <td id="Tue-8"></td>
+          <td id="Wed-8"></td>
+          <td id="Thu-8"></td>
+          <td id="Fri-8"></td>
+          <td id="Sat-8"></td>
+          <td id="Sun-8"></td>
+        </tr>
+        <tr>
+          <th>08:30</th>
+          <td id="Mon-8-30"></td>
+          <td id="Tue-8-30"></td>
+          <td id="Wed-8-30"></td>
+          <td id="Thu-8-30"></td>
+          <td id="Fri-8-30"></td>
+          <td id="Sat-8-30"></td>
+          <td id="Sun-8-30"></td>
+        </tr>
+        <tr>
+          <th>09:00</th>
+          <td id="Mon-9"></td>
+          <td id="Tue-9"></td>
+          <td id="Wed-9"></td>
+          <td id="Thu-9"></td>
+          <td id="Fri-9"></td>
+          <td id="Sat-9"></td>
+          <td id="Sun-9"></td>
+        </tr>
+        <tr>
+          <th>09:30</th>
+          <td id="Mon-9-30"></td>
+          <td id="Tue-9-30"></td>
+          <td id="Wed-9-30"></td>
+          <td id="Thu-9-30"></td>
+          <td id="Fri-9-30"></td>
+          <td id="Sat-9-30"></td>
+          <td id="Sun-9-30"></td>
+        </tr>
+        <tr>
+          <th>10:00</th>
+          <td id="Mon-10"></td>
+          <td id="Tue-10"></td>
+          <td id="Wed-10"></td>
+          <td id="Thu-10"></td>
+          <td id="Fri-10"></td>
+          <td id="Sat-10"></td>
+          <td id="Sun-10"></td>
+        </tr>
+        <tr>
+          <th>10:30</th>
+          <td id="Mon-10-30"></td>
+          <td id="Tue-10-30"></td>
+          <td id="Wed-10-30"></td>
+          <td id="Thu-10-30"></td>
+          <td id="Fri-10-30"></td>
+          <td id="Sat-10-30"></td>
+          <td id="Sun-10-30"></td>
+        </tr>
+        <tr>
+          <th>11:00</th>
+          <td id="Mon-11"></td>
+          <td id="Tue-11"></td>
+          <td id="Wed-11"></td>
+          <td id="Thu-11"></td>
+          <td id="Fri-11"></td>
+          <td id="Sat-11"></td>
+          <td id="Sun-11"></td>
+        </tr>
+        <tr>
+          <th>11:30</th>
+          <td id="Mon-11-30"></td>
+          <td id="Tue-11-30"></td>
+          <td id="Wed-11-30"></td>
+          <td id="Thu-11-30"></td>
+          <td id="Fri-11-30"></td>
+          <td id="Sat-11-30"></td>
+          <td id="Sun-11-30"></td>
+        </tr>
+        <tr>
+          <th>12:00</th>
+          <td id="Mon-12"></td>
+          <td id="Tue-12"></td>
+          <td id="Wed-12"></td>
+          <td id="Thu-12"></td>
+          <td id="Fri-12"></td>
+          <td id="Sat-12"></td>
+          <td id="Sun-12"></td>
+        </tr>
+        <tr>
+          <th>12:30</th>
+          <td id="Mon-12-30"></td>
+          <td id="Tue-12-30"></td>
+          <td id="Wed-12-30"></td>
+          <td id="Thu-12-30"></td>
+          <td id="Fri-12-30"></td>
+          <td id="Sat-12-30"></td>
+          <td id="Sun-12-30"></td>
+        </tr>
+        <tr>
+          <th>13:00</th>
+          <td id="Mon-13"></td>
+          <td id="Tue-13"></td>
+          <td id="Wed-13"></td>
+          <td id="Thu-13"></td>
+          <td id="Fri-13"></td>
+          <td id="Sat-13"></td>
+          <td id="Sun-13"></td>
+        </tr>
+        <tr>
+          <th>13:30</th>
+          <td id="Mon-13-30"></td>
+          <td id="Tue-13-30"></td>
+          <td id="Wed-13-30"></td>
+          <td id="Thu-13-30"></td>
+          <td id="Fri-13-30"></td>
+          <td id="Sat-13-30"></td>
+          <td id="Sun-13-30"></td>
+        </tr>
+        <tr>
+          <th>14:00</th>
+          <td id="Mon-14"></td>
+          <td id="Tue-14"></td>
+          <td id="Wed-14"></td>
+          <td id="Thu-14"></td>
+          <td id="Fri-14"></td>
+          <td id="Sat-14"></td>
+          <td id="Sun-14"></td>
+        </tr>
+        <tr>
+          <th>14:30</th>
+          <td id="Mon-14-30"></td>
+          <td id="Tue-14-30"></td>
+          <td id="Wed-14-30"></td>
+          <td id="Thu-14-30"></td>
+          <td id="Fri-14-30"></td>
+          <td id="Sat-14-30"></td>
+          <td id="Sun-14-30"></td>
+        </tr>
+        <tr>
+          <th>15:00</th>
+          <td id="Mon-15"></td>
+          <td id="Tue-15"></td>
+          <td id="Wed-15"></td>
+          <td id="Thu-15"></td>
+          <td id="Fri-15"></td>
+          <td id="Sat-15"></td>
+          <td id="Sun-15"></td>
+        </tr>
+        <tr>
+          <th>15:30</th>
+          <td id="Mon-15-30"></td>
+          <td id="Tue-15-30"></td>
+          <td id="Wed-15-30"></td>
+          <td id="Thu-15-30"></td>
+          <td id="Fri-15-30"></td>
+          <td id="Sat-15-30"></td>
+          <td id="Sun-15-30"></td>
+        </tr>
+        <tr>
+          <th>16:00</th>
+          <td id="Mon-16"></td>
+          <td id="Tue-16"></td>
+          <td id="Wed-16"></td>
+          <td id="Thu-16"></td>
+          <td id="Fri-16"></td>
+          <td id="Sat-16"></td>
+          <td id="Sun-16"></td>
+        </tr>
+        <tr>
+          <th>16:30</th>
+          <td id="Mon-16-30"></td>
+          <td id="Tue-16-30"></td>
+          <td id="Wed-16-30"></td>
+          <td id="Thu-16-30"></td>
+          <td id="Fri-16-30"></td>
+          <td id="Sat-16-30"></td>
+          <td id="Sun-16-30"></td>
+        </tr>
+        <tr>
+          <th>17:00</th>
+          <td id="Mon-17"></td>
+          <td id="Tue-17"></td>
+          <td id="Wed-17"></td>
+          <td id="Thu-17"></td>
+          <td id="Fri-17"></td>
+          <td id="Sat-17"></td>
+          <td id="Sun-17"></td>
+        </tr>
+        <tr>
+          <th>17:30</th>
+          <td id="Mon-17-30"></td>
+          <td id="Tue-17-30"></td>
+          <td id="Wed-17-30"></td>
+          <td id="Thu-17-30"></td>
+          <td id="Fri-17-30"></td>
+          <td id="Sat-17-30"></td>
+          <td id="Sun-17-30"></td>
+        </tr>
+        <tr>
+          <th>18:00</th>
+          <td id="Mon-18"></td>
+          <td id="Tue-18"></td>
+          <td id="Wed-18"></td>
+          <td id="Thu-18"></td>
+          <td id="Fri-18"></td>
+          <td id="Sat-18"></td>
+          <td id="Sun-18"></td>
+        </tr>
+        <tr>
+          <th>18:30</th>
+          <td id="Mon-18-30"></td>
+          <td id="Tue-18-30"></td>
+          <td id="Wed-18-30"></td>
+          <td id="Thu-18-30"></td>
+          <td id="Fri-18-30"></td>
+          <td id="Sat-18-30"></td>
+          <td id="Sun-18-30"></td>
+        </tr>
+        <tr>
+          <th>19:00</th>
+          <td id="Mon-19"></td>
+          <td id="Tue-19"></td>
+          <td id="Wed-19"></td>
+          <td id="Thu-19"></td>
+          <td id="Fri-19"></td>
+          <td id="Sat-19"></td>
+          <td id="Sun-19"></td>
+        </tr>
+        <tr>
+          <th>19:30</th>
+          <td id="Mon-19-30"></td>
+          <td id="Tue-19-30"></td>
+          <td id="Wed-19-30"></td>
+          <td id="Thu-19-30"></td>
+          <td id="Fri-19-30"></td>
+          <td id="Sat-19-30"></td>
+          <td id="Sun-19-30"></td>
+        </tr>
+        <tr>
+          <th>20:00</th>
+          <td id="Mon-20"></td>
+          <td id="Tue-20"></td>
+          <td id="Wed-20"></td>
+          <td id="Thu-20"></td>
+          <td id="Fri-20"></td>
+          <td id="Sat-20"></td>
+          <td id="Sun-20"></td>
+        </tr>
+        <tr>
+          <th>20:30</th>
+          <td id="Mon-20-30"></td>
+          <td id="Tue-20-30"></td>
+          <td id="Wed-20-30"></td>
+          <td id="Thu-20-30"></td>
+          <td id="Fri-20-30"></td>
+          <td id="Sat-20-30"></td>
+          <td id="Sun-20-30"></td>
+        </tr>
+        <tr>
+          <th>21:00</th>
+          <td id="Mon-21"></td>
+          <td id="Tue-21"></td>
+          <td id="Wed-21"></td>
+          <td id="Thu-21"></td>
+          <td id="Fri-21"></td>
+          <td id="Sat-21"></td>
+          <td id="Sun-21"></td>
+        </tr>
+        <tr>
+          <th>21:30</th>
+          <td id="Mon-21-30"></td>
+          <td id="Tue-21-30"></td>
+          <td id="Wed-21-30"></td>
+          <td id="Thu-21-30"></td>
+          <td id="Fri-21-30"></td>
+          <td id="Sat-21-30"></td>
+          <td id="Sun-21-30"></td>
+        </tr>
+        <tr>
+          <th>22:00</th>
+          <td id="Mon-22"></td>
+          <td id="Tue-22"></td>
+          <td id="Wed-22"></td>
+          <td id="Thu-22"></td>
+          <td id="Fri-22"></td>
+          <td id="Sat-22"></td>
+          <td id="Sun-22"></td>
+        </tr>
+        <tr>
+          <th>22:30</th>
+          <td id="Mon-22-30"></td>
+          <td id="Tue-22-30"></td>
+          <td id="Wed-22-30"></td>
+          <td id="Thu-22-30"></td>
+          <td id="Fri-22-30"></td>
+          <td id="Sat-22-30"></td>
+          <td id="Sun-22-30"></td>
+        </tr>
+        <tr>
+          <th>23:00</th>
+          <td id="Mon-23"></td>
+          <td id="Tue-23"></td>
+          <td id="Wed-23"></td>
+          <td id="Thu-23"></td>
+          <td id="Fri-23"></td>
+          <td id="Sat-23"></td>
+          <td id="Sun-23"></td>
+        </tr>
+
+
+      </tbody>
+
+
+    </table>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div class="container">
+  <form #registerForm="ngForm" (ngSubmit)="submitRegister(registerForm)">
+    <h1>Register</h1>
+
+
+    <!--  Email input  -->
+    <label for="email">Email</label>
+    <input #inputEmail="ngModel" type="email" name="email" ngModel required email>
+    <!--  Email validations 	-->
+    <p *ngIf="inputEmail.touched && inputEmail.errors?.required" class="error">
+      Email is required!
+    </p>
+    <p *ngIf="inputEmail.touched && inputEmail.errors?.email" class="error">
+      Email is not valid!
+    </p>
+
+
+    <!--  Password input  -->
+    <label for="password">Password</label>
+    <input #inputPassword="ngModel" type="password" name="password" ngModel required minlength="4">
+    <!--Password Validations  -->
+    <p *ngIf="inputPassword.touched && inputPassword.errors?.required" class="error">
+      Password is required!
+    </p>
+    <p *ngIf="inputPassword.touched && inputPassword.errors?.minlength" class="error">
+      Password must be min 4 symbols!
+    </p>
+
+
+    <!--  Repeat Password input -->
+    <label for="repeat-password">Repeat Password</label>
+    <input #inputRepeatPassword="ngModel" type="password" name="repeatPassword" ngModel required minlength="1">
+    <!--  Repeat Password Validations -->
+    <p *ngIf="inputPassword.value!=inputRepeatPassword.value" class="error">
+      Password and Repeat Password <br> doesn't match!
+    </p>
+    <p *ngIf="inputRepeatPassword.touched && inputRepeatPassword.errors?.required" class="error">
+      Repet Password is required!
+    </p>
+
+
+    <button [disabled]="inputEmail.invalid
+    || inputPassword.invalid
+    || inputRepeatPassword.invalid
+    || (inputPassword!.value!=inputRepeatPassword.value)">Submit</button>
+
+  </form>
+</div>

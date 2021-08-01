@@ -1,0 +1,7 @@
+<div>
+    <nav>
+        <a #calendarBtn routerLink="/calendar" (click)="clicked(calendarBtn,[budgetBtn,linkBtn])"><img src="../../assets/calendar.png" alt="Calendar"></a>
+        <a #budgetBtn routerLink="/budget" (click)="clicked(budgetBtn,[calendarBtn,linkBtn])"><img src="../../assets/money.png" alt=""></a>
+        <a #linkBtn routerLink="/links" (click)="clicked(linkBtn,[calendarBtn,budgetBtn])"><img src="../../assets/email.png" alt=""></a>
+    </nav>
+</div>

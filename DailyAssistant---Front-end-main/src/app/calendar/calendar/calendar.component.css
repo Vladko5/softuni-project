@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;700&display=swap');
+
+#calendar-div{
+  font-family: 'Noto Sans JP', sans-serif;
+  display:inline-block;
+  height: fit-content;
+  width: 100%;
+  margin-top: 7%;
+}
+#calendar-header{
+  background-color: rgb(2, 166, 216);
+  border-bottom: solid 2px white;
+  display:flex;
+  width: 100%;
+  color: white;
+}
+
+#calendar-table-div{
+  height: 80vh;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+#calendar-table{
+  border-collapse: collapse;
+  margin: 0px;
+  font-size: 0.9em;
+  min-width: 400px;
+  border-radius: 5px 5px 0 0;
+  width: -webkit-fill-available;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15)
+}
+#calendar-header-add-button{
+  position: absolute;
+  right: 10vh;
+  margin: auto;
+  padding-top: 5px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#calendar-header-date,
+#calendar-header-prev-week,
+#calendar-header-next-week{
+  position:sticky;
+  top:0;
+}
+
+#calendar-header img{
+  max-height: 10px;
+}
+#calendar-header-prev-week,
+#calendar-header-next-week,
+#calendar-header-week,
+#calendar-header-date{
+  background-color:  rgb(2, 166, 216);
+  padding: 5px;
+  color:white;
+  width: max-content;
+}
+
+#calendar-header-date{
+  font-weight: bold;
+  padding-left:50px;
+  padding-right: 20px;
+}
+
+#calendar-table thead th,
+#calendar-table thead tr{
+  background-color:  rgb(2, 166, 216);
+  position: sticky;
+  top: 0;
+}
+
+#calendar-table thead tr {
+  background-color: #009879;
+  color: white;
+  text-align: left;
+  font-weight: bold;
+}
+
+#calendar-table th{
+  padding: 12px 15px;
+  text-align: center;
+}
+
+#calendar-table td {
+  max-width: 100px;
+  padding: 12px 10px;
+  color:black;
+}
+  
+#calendar-table .task{
+  color: white;
+  font-weight:800;
+}
+
+
+#calendar-table tbody tr {
+  color: white;
+  font-size: large;
+}
+  
+#calendar-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f393;
+}
+
+#calendar-table tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+  
+.task{
+  width: fit-content;
+  background-color:rgb(232, 155, 60);
+  border-left: 1px solid white;
+  text-align: center;
+}
+
+.form-container{
+  background-color: whitesmoke;
+  position: absolute;
+  z-index: 1;
+  width: 30%;
+  border-radius: 2%;
+  font-weight: 500px;
+}
+  
+.form-container form{
+  background-color: whitesmoke;
+  display: grid;
+  padding: 3vh;
+  border: solid 1vh #121212;
+  margin: 1vh;
+  border-radius: 3%;
+}
+  
+.form-container button{
+  border: none;
+  margin-top: 2vh;
+  padding: 1vh;
+  font-weight: 700;
+  background: rgb(225, 227, 225);
+}

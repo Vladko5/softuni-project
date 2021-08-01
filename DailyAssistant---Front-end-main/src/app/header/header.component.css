@@ -1,0 +1,43 @@
+div{
+    position:fixed;
+    width: 100%;
+    background:  white;
+    height: 10vh;
+    margin:0px;
+    color: #121212;
+    font-weight: 800;
+}
+nav{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+}
+nav > p{
+  position: absolute;
+  left: 5%;
+  margin-top: 6vh;
+  font-size: 4vh;;
+}
+nav a{
+    float: right;
+    margin: 5px;
+    margin-top: 3vh;
+    padding-right: 10px;
+    text-decoration: none;
+    color: #121212;
+}
+
+nav a:hover {
+    cursor: pointer;
+}
+
+nav p:hover{
+    cursor: pointer;
+}
+.logo{
+    margin: 5px;
+    margin-top: 3vh;
+    padding-right: 10px;
+    float: left;
+}

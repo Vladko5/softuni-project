@@ -1,0 +1,55 @@
+#link-info-div{
+  margin:0;
+  padding-left:25px ;
+  background-color:rgb(2, 166, 216);
+  border-top: 1vh solid rgb(0, 109, 143);
+  height: 5vh;
+}
+.visit{
+  text-decoration: none;
+  position: fixed;
+  margin-top: 1vh;
+  right: 25vh;
+}
+
+span{
+  color: rgb(2, 166, 216);
+  font-weight: 700;
+  background-color: black;
+}
+.link-icons{
+  position: relative;
+  display: inline;
+  float: right;
+  margin-right: 10vh;
+}
+p{
+  width:30%;
+  display: inline;
+  margin-right: 1vh;
+}
+#link-view{
+  color: black;
+    font-weight: 800;
+    font-size: x-large;
+    margin: auto;
+    position: fixed;
+}
+.icon-trash{
+  margin-right:2vh;
+  cursor: pointer;
+}
+.link-info{
+  margin:0;
+  padding: 5px;
+  padding-left: 40px ;
+  color:white;
+  font-weight: 500;
+  display: inline-block;
+  padding-left:30px;
+}
+
+img{
+  margin: auto;
+  height: 5vh;
+}

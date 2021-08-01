@@ -1,0 +1,28 @@
+#budget-info-div{
+    margin:0;
+    padding-left:25px ;
+    background-color:rgb(2, 166, 216);
+    border-top: 1vh solid rgb(0, 109, 143);
+}
+.budget-info{
+    margin:0;
+    padding: 5px;
+    padding-left: 40px ;
+    color:white;
+    font-weight: 500;
+    display: inline-block;
+    padding-left:30px;
+}
+.budget-info-button{
+  display: inline-block;
+  border: none;
+  margin: 0px;
+  padding-top: 1vh;
+}
+img{
+  width: 34%;
+  margin-left: 20px;
+}
+span{
+  font-weight: 700;
+}
